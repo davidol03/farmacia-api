@@ -10,7 +10,7 @@ verificar.use( (req,res,next) =>{
         return res.status(401).json({status: false, errors: ['No autorizado']})
     }
     if(token.startsWith('Bearer')) {
-        token = token.slice(15,token.length)
+        token = token.slice(7,token.length)
         Jwt.verify(token, JWT_SECRET, (error,decoded)=>{
             if(error) {
                 return res.status(401).json({status: false,errors:['Token NO válido']})
